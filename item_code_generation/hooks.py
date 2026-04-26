@@ -5,6 +5,27 @@ app_description = "Generate item code based on variant values and template item 
 app_email = "wouldyukindly@gmail.com"
 app_license = "gpl-3.0"
 
+
+#Fixtures — will sync the custom field on `bench migrate`
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [["module", "=", "Item Code Generation"]],
+    }
+]
+
+# Doc Events
+doc_events = {
+    "Item": {
+        "before_save": "item_code_generation.item_variant.item_code_generator.generate_variant_sku",
+    }
+}
+
+# Client Scripts
+doctype_js = {
+    "Item": "public/js/item.js"
+}
+
 # Apps
 # ------------------
 

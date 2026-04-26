@@ -1,0 +1,27 @@
+[
+ {
+  "doctype": "Custom Field",
+  "module": "Item Code Generation",
+  "name": "Item Attribute Value-sku_code",
+  "dt": "Item Attribute Value",
+  "fieldname": "sku_code",
+  "label": "SKU Code",
+  "fieldtype": "Data",
+  "insert_after": "attribute_value",
+  "in_list_view": 1,
+  "in_standard_filter": 0,
+  "description": "Short code used in variant SKU generation (e.g. 'XL' for extra large, 'RED' for RED). Referenced via {attribute_name} placeholder in the template item_code.",
+  "translatable": 0,
+  "reqd": 0,
+  "bold": 0,
+  "hidden": 0,
+  "read_only": 0,
+  "allow_on_submit": 0,
+  "print_hide": 0,
+  "report_hide": 0,
+  "search_index": 0,
+  "unique": 0,
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+ }
+]
