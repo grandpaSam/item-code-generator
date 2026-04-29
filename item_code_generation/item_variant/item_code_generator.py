@@ -116,8 +116,15 @@ def generate_variant_sku(doc, method=None):
     if not doc.item_name or doc.item_name == doc.name or doc.item_name == doc.variant_of:
         doc.item_name = new_sku
     doc.item_code = new_sku
-    doc.name = new_sku
 
+def generate_doc_name_after_insert(doc, method=None):
+	if not doc.variant_of:
+		return
+
+    # Only rename if before_save couldn't set the name correctly
+    # (i.e. bulk creation path where child tables need cascade)
+	if doc.name != doc.item_code:
+		frappe.rename_doc("Item", doc.name, doc.item_code, force=True)
 
 def _validate_placeholders(placeholders, attr_code_map, item_label):
     """Throws a ValidationError if any placeholder has no sku_code."""

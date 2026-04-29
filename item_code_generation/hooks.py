@@ -18,6 +18,8 @@ fixtures = [
 doc_events = {
     "Item": {
         "before_save": "item_code_generation.item_variant.item_code_generator.generate_variant_sku",
+		"after_insert":
+		"item_code_generation.item_variant.item_code_generator.generate_doc_name_after_insert"
     }
 }
 
